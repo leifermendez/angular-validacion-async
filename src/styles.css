@@ -1,0 +1,104 @@
+/* You can add global styles to this file, and also import other style files */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #1DB954;
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+*:focus {
+  outline: none;
+}
+
+input::placeholder {
+  color: lightgray;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.input-src {
+  position: relative;
+  font-weight: 400 !important;
+  border: solid 1px white;
+  border-radius: 2rem;
+  background-color: white;
+  box-sizing: border-box;
+  padding: .75rem;
+  font-size: 1rem;
+  width: 100%;
+  box-shadow: 0 6.7px 5.3px rgba(0, 0, 0, 0.032),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.048),
+  0 100px 80px rgba(0, 0, 0, 0.08);
+}
+
+.limit-width {
+  position: relative;
+  width: 35rem;
+}
+
+.input-src.loading {
+  background-image: url("./assets/images/loading.svg");
+  background-repeat: no-repeat;
+  background-size: 2rem;
+  background-position: right;
+}
+
+.results {
+  background: white;
+  padding: 0;
+  margin-top: .5rem;
+  border-radius: 1rem;
+  width: 100%;
+  box-shadow: 0 6.7px 5.3px rgba(0, 0, 0, 0.032),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.048),
+  0 100px 80px rgba(0, 0, 0, 0.08);
+}
+
+.results ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  /*display: co;*/
+}
+
+.results ul li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 400;
+  /*background-color: red;*/
+  padding: .5rem;
+  border-bottom: solid 1px #f1f1f1;
+
+}
+
+.results ul li:hover .name {
+  background-color: #42e77b;
+}
+
+.results ul li:last-child {
+  border-bottom: transparent;
+}
+
+.results ul li .name {
+  padding: .35rem;
+  border-radius: 1rem;
+  transition: all ease 150ms;
+  /*background-color: red;*/
+
+}
+
+.results ul li img {
+  width: 30px;
+  border-radius: 1rem;
+}

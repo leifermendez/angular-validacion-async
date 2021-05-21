@@ -1,0 +1,26 @@
+<div class="wrapper">
+
+  <div class="limit-width" #asBoxInput>
+    <input
+      class="input-src"
+      [ngClass]="{'loading':isLoading}"
+      [spellcheck]="false"
+      placeholder="Canciones"
+      type="text"
+      (ngModelChange)="search($event)"
+      [(ngModel)]="src">
+
+      <div class="results">
+        <ul>
+          <li *ngFor="let item of data$ | async">
+            <a class="name" target="_blank" [href]="item?.external_urls?.spotify">
+              {{item.name}}
+            </a>
+            <img [src]="item.album.images[2].url" alt="">
+          </li>
+        </ul>
+      </div>
+
+  </div>
+
+</div>
