@@ -1,6 +1,6 @@
 import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import {ApiRestService} from './api-rest.service';
-import {FormControl} from '@angular/forms';
+import {AbstractControl, AsyncValidatorFn, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {debounceTime, finalize, map, switchMap, tap} from 'rxjs/operators';
 import {fromEvent, of} from 'rxjs';
 
@@ -9,21 +9,33 @@ import {fromEvent, of} from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  public isLoading = false;
-  public src: string;
-  public data$: any;
+export class AppComponent implements OnInit {
+  public form: FormGroup;
 
-  constructor(private apiRest: ApiRestService) {
+  constructor(private fb: FormBuilder, private api: ApiRestService) {
   }
 
-  search(value: any): any {
-    this.isLoading = true;
+  ngOnInit(): void {
+    this.form = this.fb.group({
+      nickname: ['', {
+        validators: [
+          Validators.required
+        ],
+        asyncValidators: [
+          nicknameCheck(this.api)
+        ],
+        updateOn: 'blur' // or 'change' or 'submit'
+      }]
+    });
+  }
+}
 
-    this.data$ = this.apiRest.searchTrack({q: value})
+
+export function nicknameCheck(api: any): AsyncValidatorFn {
+  return (control: AbstractControl) => {
+    return api.checkUsername(control.value)
       .pipe(
-        map(({tracks}) => tracks.items),
-        finalize(() => this.isLoading = false)
-      )
-  }
+        map(({result}) => (result) ? {nicknameExists: true} : null)
+      );
+  };
 }

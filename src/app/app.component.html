@@ -1,25 +1,23 @@
 <div class="wrapper">
 
-  <div class="limit-width" #asBoxInput>
-    <input
-      class="input-src"
-      [ngClass]="{'loading':isLoading}"
-      [spellcheck]="false"
-      placeholder="Canciones"
-      type="text"
-      (ngModelChange)="search($event)"
-      [(ngModel)]="src">
+  <div class="limit-width">
+    <h2>¿Tienes cuenta de Fornite?</h2>
 
-      <div class="results">
-        <ul>
-          <li *ngFor="let item of data$ | async">
-            <a class="name" target="_blank" [href]="item?.external_urls?.spotify">
-              {{item.name}}
-            </a>
-            <img [src]="item.album.images[2].url" alt="">
-          </li>
-        </ul>
+    <form [formGroup]="form">
+      <div>
+        <input formControlName="nickname" placeholder="username" type="text">
       </div>
+      <div>
+        <button [disabled]="!form.valid">Continuar</button>
+
+        <div class="wrapper-loading" *ngIf="form.pending">
+          <div class="text">Buscando....</div>
+          <img class="loading-fornite"
+               src="https://media1.giphy.com/media/1kTWV9RGnnUPOwPQY3/giphy.gif?cid=790b761196f56b3f967574b25dd78a1dda1bece710f16740&rid=giphy.gif&ct=g"
+               alt="">
+        </div>
+      </div>
+    </form>
 
   </div>
 

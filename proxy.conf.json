@@ -1,0 +1,9 @@
+{
+  "/api": {
+    "target": "https://fortniteapi.io/v1/lookup",
+    "headers": {
+      "Host": "api.fortnitetracker.com",
+      "TRN-Api-Key": "aa4c5666-d2ed-45a8-9ad8-26a7a4a1b1cf"
+    }
+  }
+}

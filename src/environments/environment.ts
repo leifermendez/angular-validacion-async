@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   url: 'https://api.spotify.com/v1/search',
-  token: 'BQAwsG3S8GT6NTyShvpSosqKpqGCs1nwHRmUjS-rBPEr6kx5Skf0wH-STRUKprkcLiX3Gy6GlRGtdmD3JOYoJh12dvoIVsAScnQUmLQbJlHdguBIWtYpPj8dEZNeNuxiUgjhq7vMSSXRosu4TlCGs6VpVvTxwESJkZv2trbIfbzTUHE'
+  token: 'BQAhCtKEhEMQI0VsmKfjeRKV-eJNhbm-jpD6XFVMBNTmZFPsMN0AXnhE-cyYWjYVsED2e76GI8NxBFRkwdWYH1ixoQWO9DNJKVMBUIORHBwyoX9pJTL750E-SLOuhK6fpLrfN2Pa76ajFMrF0BlKAbCvx7fR1OtSc3LE_E3qasKWb5w'
 };
 
 /*
