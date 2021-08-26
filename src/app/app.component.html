@@ -7,6 +7,7 @@
       <div>
         <input formControlName="nickname" placeholder="username" type="text">
       </div>
+      <div class="text-danger" *ngIf="form.get('nickname').hasError('nicknameExists') && form.get('nickname').touched">User already exists </div>                                      
       <div>
         <button [disabled]="!form.valid">Continuar</button>
 
